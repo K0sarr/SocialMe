@@ -4,7 +4,6 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin, googleLogout } from '@react-oauth/google'
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom'
-import { FcGoogle } from 'react-icons/fc'
 import shareVideo from '../assets/share.mp4'
 import logo from '../assets/LogoSWhite2.png'
 
@@ -28,19 +27,25 @@ const Login = () => {
 
         // const { name, googleId, imageUrl } = response.profileObj;
         const { name, aud, picture } = decode;
+        // const { name, sub, imageUrl } = decode;
 
         const doc = {
           _id: aud, 
           _type: 'user',
           userName: name,
           image: picture,
+        }
 
         // const doc = {
-        //     _id: googleId,
+        //     _id: sub,
         //     _type: 'user',
         //     userName: name,
         //     image: imageUrl,
-        }
+        // }
+
+        console.log("googleId:", aud);
+        console.log("image:", picture);
+
 
         client.createIfNotExists(doc)
         .then(() => {
