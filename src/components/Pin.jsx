@@ -31,15 +31,15 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
           postedBy: {
             _type: 'postedBy',
             _ref: user?.aud
-          }
+          },
         }])
         .commit()
         .then(() => {
           window.location.reload();
           // setSavingPost(false);
-        })
+        });
     }
-  }
+  };
 
   const deletePin = (id) => {
     client
@@ -54,7 +54,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
       <div 
         onMouseEnter={() => setPostHovered(true)}
         onMouseLeave={() => setPostHovered(false)}
-        onClick={() => navigate(`/pin/detail/${_id}`)}
+        onClick={() => navigate(`/pin-detail/${_id}`)}
         className='relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out'
       >
         {image && (
