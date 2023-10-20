@@ -47,6 +47,7 @@ const Login = () => {
         console.log("image:", picture);
 
 
+
         client.createIfNotExists(doc)
         .then(() => {
             navigate('/', {replace: true})
@@ -73,12 +74,12 @@ const Login = () => {
 
         <div className='shadow-2xl'>
         <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
-        <GoogleLogin
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy="single_host_origin"
-        />
-</GoogleOAuthProvider>;
+          <GoogleLogin
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy="single_host_origin"
+          />
+        </GoogleOAuthProvider>
 
 
             {/* <GoogleOAuthProvider
