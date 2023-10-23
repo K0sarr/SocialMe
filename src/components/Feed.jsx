@@ -15,29 +15,41 @@ const Feed = () => {
     setLoading(true);
     if(categoryId) {
       const query = searchQuery(categoryId);
-
+      
       client.fetch(query)
       .then((data) => {
         setPins(data);
         setLoading(false);
-      })
+      });
     } else {
+      setLoading(true);
+
       client.fetch(feedQuery)
       .then((data) => {
         setPins(data);
         setLoading(false);
-      })
+      });
     }
-  }, [categoryId])
-  
+  }, [categoryId]);
 
-  if(loading) return <Spinner message="We are adding new ideas to your feed!" />;
+  
+  const ideaName = categoryId || 'new';
+
+  if (loading) {
+    return (
+      <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
+    );
+  }
+
+  if (!pins?.length) return <h2>No pins avaliable</h2>
 
   return (
     <div>
-      {pins && <MasonryLayout pins={pins} />}
+      {pins && (
+        <MasonryLayout pins={pins} />
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Feed

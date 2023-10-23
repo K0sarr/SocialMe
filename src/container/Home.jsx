@@ -13,26 +13,26 @@ import { fetchUser } from '../utils/fetchUser';
 
 
 const Home = () => {
-const [toggleSidebar, setToggleSidebar] = useState(false);
-const [user, setUser] = useState(null)
-const scrollRef = useRef(null);
+  const [toggleSidebar, setToggleSidebar] = useState(false);
+  const [user, setUser] = useState(null)
+  const scrollRef = useRef(null);
 
 
-const userInfo = fetchUser();
+  const userInfo = fetchUser();
 
 
-useEffect(() => {
-  const query = userQuery(userInfo?.aud);
+  useEffect(() => {
+    const query = userQuery(userInfo?.aud);
 
-  client.fetch(query)
-  .then((data) => {
-    setUser(data[0]);
-  });
-}, []);
+    client.fetch(query)
+    .then((data) => {
+      setUser(data[0]);
+    });
+  }, []);
 
-useEffect(() => {
-  scrollRef.current.scrollTo(0, 0);
-}, [])
+  useEffect(() => {
+    scrollRef.current.scrollTo(0, 0);
+  }, [])
 
 
 
