@@ -5,7 +5,7 @@
 ### A Social media Fullstack application created with React, Tailwind and Sanity, Signup & Login with Google.
 
 ### Seamless Google Authentication
-Signing up and signing in has never been easier. ShareMe leverages the power of Google Authentication, ensuring a hassle-free and secure onboarding process. Your account is your gateway to a world of shared experiences and connections.
+Signing up and signing in has never been easier. SocialMe leverages the power of Google Authentication, ensuring a hassle-free and secure onboarding process. Your account is your gateway to a world of shared experiences and connections.
 
 ### Explore SocialMe on Netlify
 Experience SocialMe live on [Netlify](https://socialmekos.netlify.app/). The platform is hosted here, guaranteeing a smooth and responsive experience for users from all around the world.
