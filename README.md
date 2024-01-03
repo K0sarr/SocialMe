@@ -1,6 +1,6 @@
 # SocialMe: A Social Media Platform for Sharing Experiences
+![ApplicationImage](https://github.com/K0sarr/SocialMe/assets/92398586/5ff2190d-6c36-49d4-96e2-fb6d970d457e)
 
-![ApplicationImage](https://github.com/K0sarr/SocialMe/assets/92398586/b5206612-02ca-409a-8705-1c76b734fd0a)
 
 ### A Social media Fullstack application created with React, Tailwind and Sanity, Signup & Login with Google.
 
