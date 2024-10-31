@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useParams, useNavigate } from 'react-router-dom';
-import { GoogleLogout } from 'react-google-login';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data';
 import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
@@ -85,7 +82,7 @@ const UserProfile = () => {
               {user.userName}
             </h1>
             <div className='absolute top-0 z-1 right-0 p-2'>
-              {userId === user._id && (
+            {userId === user._id && (
                  <button onClick={logout} className='bg-white p-2 rounded-full cursor-pointer outline-none shadow-md'>
                  <AiOutlineLogout color='red' fontSize={21} />
                </button>
