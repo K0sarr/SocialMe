@@ -22,7 +22,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    const query = userQuery(userInfo?.aud);
+    const query = userQuery(userInfo?.sub);
 
     client.fetch(query)
     .then((data) => {
