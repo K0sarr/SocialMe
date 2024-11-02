@@ -16,7 +16,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
   const user = fetchUser();
 
 
-  const alreadySaved = !!(save?.filter((item) => item?.postedBy?._id === user?.aud))?.length;
+  const alreadySaved = !!(save?.filter((item) => item?.postedBy?._id === user?.sub))?.length;
 
   const savePin = (id) => {
     if(!alreadySaved) {
@@ -27,10 +27,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
         .setIfMissing({ save: [] })
         .insert('after', 'save[-1]', [{
           _key: uuidv4(),
-          userId: user?.aud,
+          userId: user?.sub,
           postedBy: {
             _type: 'postedBy',
-            _ref: user?.aud
+            _ref: user?.sub
           },
         }])
         .commit()
@@ -105,7 +105,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save }}) => {
                 {destination.length > 13 ? `${destination.slice(8, 20)}...` : destination}
               </a>
             )}
-            {postedBy?._id === user?.aud && (
+            {postedBy?._id === user?.sub && (
               <button
               onClick={(e) => {
                 e.stopPropagation()

@@ -52,7 +52,6 @@ import Spinner from './Spinner';
       client.fetch(`${query}`)
       .then((data) => {
         setPinDetail(data[0]);
-        console.log(data);
 
         if (data[0]) {
           const query1 = pinDetailMorePinQuery(data[0]);
@@ -105,7 +104,7 @@ import Spinner from './Spinner';
               </h1>
               <p className='mt-3'>{pinDetail.about}</p>
             </div>
-            <Link to={`user-profile/${pinDetail.postedBy?._id}`} className='flex gap-2 mt-5 items-center bg-white rounded-lg'>
+            <Link to={`/user-profile/${pinDetail.postedBy?._id}`} className='flex gap-2 mt-5 items-center bg-white rounded-lg'>
               <img
                 className='w-8 h-8 rounded-full object-cover'
                 src={pinDetail.postedBy?.image}
