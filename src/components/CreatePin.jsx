@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { client } from '../client';
 import Spinner from './Spinner';
 import { categories } from '../utils/data';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const CreatePin = ({ user }) => {
@@ -67,11 +69,15 @@ const CreatePin = ({ user }) => {
 
       client.create(doc)
       .then (() => {
+        toast.success('Pin was created successfully!');
         navigate('/')
+      }).catch(() => {
+        toast.error('Failed to create pin. Please try again.');
       })
     } else {
       setFields(true);
-      
+      toast.error('Please fill in all fields.');
+
       setTimeout(() => setFields(false), 2000)
     }
   }
@@ -174,7 +180,7 @@ const CreatePin = ({ user }) => {
                     onClick={savePin}
                     className='bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none'
                   >
-                    Save Pin
+                    Create Pin
                   </button>
               </div>
         </div>
