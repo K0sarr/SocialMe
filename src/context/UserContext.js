@@ -1,7 +1,6 @@
-// src/context/UserContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Create context
+// Using a usercontext to handle users login to the project.
 const UserContext = createContext();
 
 // Hook to access the user context

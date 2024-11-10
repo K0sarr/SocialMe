@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../context/UserContext'; // Import context
+import { useUser } from '../context/UserContext'; // Use context to login
 import shareVideo from '../assets/share.mp4';
 import logo from '../assets/LogoSWhite2.png';
 import { client } from '../client';
@@ -14,7 +14,7 @@ const Login = () => {
     const { credential } = response;
     const decodedResponse = JSON.parse(atob(credential.split('.')[1]));
     const { sub, name, picture } = decodedResponse;
-
+    
     const query = `*[_type == "user" && _id == "${sub}"]`;
     const existingUser = await client.fetch(query);
 
@@ -28,9 +28,9 @@ const Login = () => {
       await client.create(newUser);
     }
 
-    // Use loginUser from context to set user globally
+
     loginUser({ sub, name, picture });
-    navigate('/'); // Redirect after login
+    navigate('/');
   };
 
   return (
